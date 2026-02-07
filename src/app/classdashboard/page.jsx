@@ -2,8 +2,8 @@ import React from 'react'
 
 function page() {
   return (
-    <div>
-      
+    <div className="pt-[55px]">
+      hello
     </div>
   )
 }
