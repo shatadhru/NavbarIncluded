@@ -68,7 +68,7 @@ function Navbar() {
                         className="mr-2 border-1 border-gray-800 rounded-full cursor-pointer"
                         onClick={() => window.location.href = "/"}
                     />
-                    <span className="text-sm  sm:text-base md:text-lg font-bold">LMS</span>
+                    <span className="text-sm  sm:text-base md:text-lg font-bold">Exam</span>
                     <div className="pl-2 text-xs sm:text-sm md:text-base">
                         <Dropdown>
                             <Button variant="ghost" aria-label="Menu" size="sm" className="text-[10px] text-gray-400 dark:hover:text-white transition-colors  text-gray-700 dark:text-gray-300 

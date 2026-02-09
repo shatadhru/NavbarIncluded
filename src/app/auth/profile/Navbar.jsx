@@ -161,7 +161,7 @@ function Navbar() {
                     )}
                     <Button size="sm" className="text-xs m-w-[50px]">
                         <User2Icon />
-                        <h1 className="hidden md:block">Login</h1>
+                        <h1 className="hidden md:block">Register</h1>
                     </Button>
 
 

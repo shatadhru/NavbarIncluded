@@ -4,3 +4,19 @@
 body{
 font-family: "Inter";
 }
+
+  .slider__track {
+      @apply h-1 w-full;
+      /* Add transparent borders to provide space for thumb at edges */
+      /* Thumb width is 1.5rem (24px), so half is 0.75rem (12px) */
+  }
+
+  /* Make youtube-video responsive and interactive */
+  youtube-video,
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    pointer-events: none;
+  }
