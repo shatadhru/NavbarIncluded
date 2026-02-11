@@ -60,15 +60,16 @@ function Navbar() {
  h-[55px] flex items-center justify-between">
 
 
-                <div className="w-[35px] sm:w-[40px] md:w-[48px]  flex items-center">
-                    <Image src="/logo.png"
+                <div className="w-[75px] sm:w-[50px] md:w-[88px]   flex items-center">
+                    <Image src="/logo2.png"
+
                         alt="Logo"
-                        width={40}
+                        width={100}
                         height={40}
-                        className="mr-2 border-1 border-gray-800 rounded-full cursor-pointer"
+                        className="mr-2 dark:bg-white  cursor-pointer"
                         onClick={() => window.location.href = "/"}
+                        
                     />
-                    <span className="text-sm  sm:text-base md:text-lg font-bold">LMS</span>
                     <div className="pl-2 text-xs sm:text-sm md:text-base">
                         <Dropdown>
                             <Button variant="ghost" aria-label="Menu" size="sm" className="text-[10px] text-gray-400 dark:hover:text-white transition-colors  text-gray-700 dark:text-gray-300 
@@ -128,7 +129,7 @@ function Navbar() {
                 </div>
 
                 <div className="flex items-center justify-center gap-2">
-                    {theme && (
+                    {/* {theme && (
                         <Tabs
                             className="w-full max-w-lg text-center hidden md:block"
                             selectedKey={theme ?? "system"}
@@ -158,10 +159,10 @@ function Navbar() {
                                 </Tabs.List>
                             </Tabs.ListContainer>
                         </Tabs>
-                    )}
+                    )} */}
                     <Button size="sm" className="text-xs m-w-[50px]">
                         <User2Icon />
-                        <h1 className="hidden md:block">Register</h1>
+                        <h1 className="hidden md:block">Login</h1>
                     </Button>
 
 
@@ -174,9 +175,9 @@ function Navbar() {
             </div>
 
 
-{/* Mobile Nav menu */}
+            {/* Mobile Nav menu */}
 
-{
+            {
                 isOpen && (<div
                     className={`w-full fixed top-[55px] h-full py-4 left-0 bg-background items-center flex md:hidden 
  flex flex-col  gap-6 z-10
@@ -206,7 +207,7 @@ function Navbar() {
                         ))}
                     </Accordion>
 
-                    {theme && (
+                    {/* {theme && (
                         <Tabs
                             className="w-full max-w-lg text-center md:block my-1"
                             selectedKey={theme ?? "system"}
@@ -236,7 +237,7 @@ function Navbar() {
                                 </Tabs.List>
                             </Tabs.ListContainer>
                         </Tabs>
-                    )}
+                    )} */}
                     <div className="flex gap-4 mb-2 justify-center md:justify-start">
                         <Link
                             href="/privacy-policy"
@@ -262,8 +263,8 @@ function Navbar() {
 
 
                 </div>
-)
-}
+                )
+            }
 
 
 

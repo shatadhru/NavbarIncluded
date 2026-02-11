@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next export"
+
   },
   "dependencies": {
     "@heroui/link": "^2.2.25",

@@ -60,11 +60,7 @@ export default function YoutubePlayer({classUrl}) {
 
                 <MediaTimeDisplay showDuration remaining />
 
-                <MediaMuteButton>
-                    <Volume2 size={18} />
-                </MediaMuteButton>
-
-                <MediaVolumeRange />
+             
 
                 <MediaPlaybackRateButton>
                     <Gauge size={18} />
