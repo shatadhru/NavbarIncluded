@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Button } from "@heroui/react"
 import {
   RxDashboard,
@@ -13,22 +13,19 @@ import {
   RxCross2
 } from "react-icons/rx"
 
-/* ---------------- CONTENT ---------------- */
+import DashboardNew from "./Dashboard"
+import Loading from "./Loading"
 
-const Card = ({ title }) => (
-  <div className="bg-black text-white rounded-xl p-6">
-    {title}
-  </div>
-)
+/* ---------------- CUSTOM COMPONENTS ---------------- */
 
-const Dashboard = () => <Card title="Dashboard" />
-const Classes = () => <Card title="Classes" />
-const Profile = () => <Card title="Profile" />
-const Settings = () => <Card title="Settings" />
-const Exam = () => <Card title="Exam Panel" />
-const Qna = () => <Card title="Q & A Section" />
-const Doubt = () => <Card title="Doubt Solve Center" />
-const Live = () => <Card title="Live Classes" />
+const Dashboard = () => <DashboardNew />
+const Classes = () => <div className="p-6">Classes Content</div>
+const Profile = () => <div className="p-6">Profile Content</div>
+const Settings = () => <div className="p-6">Settings Content</div>
+const Exam = () => <div className="p-6">Exam Panel Content</div>
+const Qna = () => <div className="p-6">Q & A Section Content</div>
+const Doubt = () => <div className="p-6">Doubt Solve Center Content</div>
+const Live = () => <div className="p-6">Live Classes Content</div>
 
 /* ---------------- MENU DATA ---------------- */
 
@@ -43,9 +40,11 @@ const menuData = [
   { id: "settings", label: "সেটিং", icon: RxGear, component: Settings },
 ]
 
-export default function Page() {
+/* ---------------- MAIN PAGE ---------------- */
 
+export default function Page() {
   const [active, setActive] = useState(menuData[0])
+  const [loading, setLoading] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const ActiveComponent = active.component
@@ -54,11 +53,11 @@ export default function Page() {
     <div className="mt-8 flex flex-col gap-2">
       {menuData.map(item => {
         const Icon = item.icon
-
         return (
           <Button
             key={item.id}
             onClick={() => {
+              setLoading(true) // start loading
               setActive(item)
               close && setMobileOpen(false)
             }}
@@ -74,35 +73,29 @@ export default function Page() {
     </div>
   )
 
+  // Simulate loading effect whenever active changes
+  useEffect(() => {
+    if (loading) {
+      const timer = setTimeout(() => setLoading(false), 500) // 0.5s loading
+      return () => clearTimeout(timer)
+    }
+  }, [loading])
+
   return (
     <div className="w-full pt-[55px]">
-
-      {/* Mobile Hamburger */}
+      {/* Mobile Hamburger Button */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="md:hidden fixed top-[60px] left-3 z-50 bg-accent text-white p-2 rounded-lg"
+        className="md:hidden fixed top-[60px] right-5 z-50 bg-accent text-white p-2 rounded-lg"
       >
         <RxHamburgerMenu size={22} />
       </button>
 
       <div className="flex min-h-screen">
-
         {/* Desktop Sidebar */}
-        <aside
-          className="
-            hidden md:block fixed top-[55px] left-0 w-[240px]
-            h-[calc(100vh-55px)] border-r p-4 bg-white
-            animate-[slideIn_0.5s_ease-in-out] border-r border-gray-200
-          "
-        >
-          <h1 className="font-bold text-xl text-accent">
-            স্টুডেন্ট ড্যাশবোর্ড
-          </h1>
-
-          <p className="text-sm text-gray-500">
-            আপনার কোর্স ম্যানেজ করুন
-          </p>
-
+        <aside className="hidden md:block fixed top-[55px] left-0 w-[240px] h-[calc(100vh-55px)] border-r p-4 bg-white animate-[slideIn_0.5s_ease-in-out] border-gray-200">
+          <h1 className="font-bold text-xl text-accent">স্টুডেন্ট ড্যাশবোর্ড</h1>
+          <p className="text-sm text-gray-500">আপনার কোর্স ম্যানেজ করুন</p>
           <Menu />
         </aside>
 
@@ -113,36 +106,28 @@ export default function Page() {
             className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ${mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
           />
-
           <aside
-            className={`
-              fixed top-0 left-0 w-[240px] h-full bg-white z-50 p-4
-              transition-transform duration-300 ease-in-out
-              ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
-            `}
+            className={`fixed top-0 left-0 w-[240px] h-full bg-white z-50 p-4 transition-transform duration-300 ease-in-out ${mobileOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
           >
-
             <div className="flex justify-between items-center">
               <h1 className="font-bold text-accent">Dashboard</h1>
-              <RxCross2 onClick={() => setMobileOpen(false)} />
+              <RxCross2
+                onClick={() => setMobileOpen(false)}
+                className="cursor-pointer"
+              />
             </div>
-
             <Menu close />
-
           </aside>
         </>
 
-        {/* Main */}
-        <main className="md:ml-[240px] w-full p-6">
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
-            <ActiveComponent />
+        {/* Main Content */}
+        <main className="md:ml-[240px] w-full p-2 md:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 w-full">
+            {loading ? <Loading /> : <ActiveComponent />}
           </div>
-
         </main>
-
       </div>
-
     </div>
   )
 }

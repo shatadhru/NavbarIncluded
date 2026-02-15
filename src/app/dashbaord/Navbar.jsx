@@ -19,25 +19,25 @@ import { Accordion } from "@heroui/react";
 const NavbarItems = [
     {
         id: 1,
-        label: "Projects",
+        label: "হোম",
         href: "/",
         icon: <Home size={16} />,
     },
     {
         id: 2,
-        label: "Resources",
+        label: "কোর্সসমূহ",
         href: "/profile",
         icon: <User size={16} />,
     },
     {
         id: 3,
-        label: "Designs",
+        label: "স্টোর",
         href: "/profile",
         icon: <User size={16} />,
     },
     {
         id: 4,
-        label: "Settings",
+        label: "যোগাযোগ",
         href: "/settings",
         icon: <MonitorDot size={16} />,
     },
@@ -175,9 +175,9 @@ function Navbar() {
             </div>
 
 
-{/* Mobile Nav menu */}
+            {/* Mobile Nav menu */}
 
-{
+            {
                 isOpen && (<div
                     className={`w-full fixed top-[55px] h-full py-4 left-0 bg-background items-center flex md:hidden 
  flex flex-col  gap-6 z-10
@@ -263,8 +263,8 @@ function Navbar() {
 
 
                 </div>
-)
-}
+                )
+            }
 
 
 

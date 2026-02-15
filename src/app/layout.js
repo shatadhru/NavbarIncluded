@@ -1,10 +1,13 @@
-import { Inter } from "next/font/google";
+import { Anek_Bangla } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { ClerkProvider } from '@clerk/nextjs'
 
-const geistMono = Inter({
+
+const geistMono = Anek_Bangla({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight:["100","200","300", "400"]
 });
 
 export const metadata = {
@@ -16,9 +19,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`light bg-background text-foreground ${geistMono.variable} antialiased`}>
+     <ClerkProvider  
+       appearance={{
+    variables: { colorPrimary: '#F53D2F' },
+   
+     
+       }}
+     >
+       <body className={`light  text-foreground ${geistMono.variable} antialiased`}>
           {children}
       </body>
+      </ClerkProvider> 
+     
     </html>
   );
 }

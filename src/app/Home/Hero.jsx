@@ -1,11 +1,11 @@
 import React from 'react'
 
-function page() {
+function Hero() {
   return (
     <div>
-      Authentication Here
+      
     </div>
   )
 }
 
-export default page
+export default Hero

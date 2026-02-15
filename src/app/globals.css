@@ -11,7 +11,7 @@
 
     /* Primary */
   --primary: oklch(59.98% 0.2461 29.23);
-  --primary-foreground: oklch(99.11% 0 0);
+  --primary-foreground: oklch(100% 0.00011 271.152);
 
   /* Secondary */
   --secondary: oklch(78% 0.06 240);
@@ -21,7 +21,7 @@
   --accent: oklch(59.98% 0.2461 29.23);
   --accent-foreground: oklch(99.11% 0 0);
   --background: oklch(97.02% 0.0064 29.23);
-  --border: oklch(90.00% 0.0064 29.23);
+  --border: oklch(100% 0.00011 271.152);
   --danger: oklch(65.32% 0.2358 358.79);
   --danger-foreground: oklch(99.11% 0 0);
   --default: oklch(94.00% 0.0064 29.23);
@@ -104,7 +104,7 @@
 }
 
 body{
-font-family: "Inter";
+  font-family: "Anek Bangla", sans-serif;
 }
 
   .slider__track {
@@ -122,3 +122,15 @@ font-family: "Inter";
     border-radius: 12px;
     pointer-events: none;
   }
+
+  
+@keyframes slideIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
