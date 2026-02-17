@@ -12,6 +12,7 @@ import {
   RxHamburgerMenu,
   RxCross2
 } from "react-icons/rx"
+import Image from "next/image"
 
 /* ---------------- CONTENT ---------------- */
 
@@ -75,7 +76,7 @@ export default function Page() {
   )
 
   return (
-    <div className="w-full pt-[55px]">
+    <div className="w-full ">
 
       {/* Mobile Hamburger */}
       <button
@@ -90,11 +91,13 @@ export default function Page() {
         {/* Desktop Sidebar */}
         <aside
           className="
-            hidden md:block fixed top-[55px] left-0 w-[240px]
+            hidden md:block fixed  left-0 w-[240px]
             h-[calc(100vh-55px)] border-r p-4 bg-white
             animate-[slideIn_0.5s_ease-in-out] border-r border-gray-200
           "
         >
+
+          <Image src="/logo2.png" width={100} height={50} alt="logo" className="mb-10 border-b border-gray-50" />
           <h1 className="font-bold text-xl text-accent">
             স্টুডেন্ট ড্যাশবোর্ড
           </h1>

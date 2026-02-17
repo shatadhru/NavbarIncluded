@@ -15,12 +15,13 @@ import {
 
 import DashboardNew from "./Dashboard"
 import Loading from "./Loading"
+import ProfileNew from "./Profile"
 
 /* ---------------- CUSTOM COMPONENTS ---------------- */
 
 const Dashboard = () => <DashboardNew />
 const Classes = () => <div className="p-6">Classes Content</div>
-const Profile = () => <div className="p-6">Profile Content</div>
+const Profile = () => <ProfileNew />
 const Settings = () => <div className="p-6">Settings Content</div>
 const Exam = () => <div className="p-6">Exam Panel Content</div>
 const Qna = () => <div className="p-6">Q & A Section Content</div>
