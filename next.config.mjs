@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "img.clerk.com",
-        pathname: "/**",
+        hostname: "**", // সব host allow করবে
+        pathname: "/**", // সব path allow করবে
       },
     ],
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
