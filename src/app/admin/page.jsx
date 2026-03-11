@@ -30,6 +30,7 @@ import {
 import { CreditCard, Ticket } from "lucide-react"
 import CourseManage from "./CourseManage"
 import Category from "./Category"
+import AdminLive from "./LiveStream"
 
 /* ================== COMPONENTS ================== */
 
@@ -39,7 +40,7 @@ const Students = () => <div className="p-6">Students Management</div>
 const Teachers = () => <div className="p-6">Teachers Management</div>
 const Courses = () => <CourseManage />
 const Categories = () => <Category />
-const Live = () => <div className="p-6">Live Classes Content</div>
+const Live = () => <AdminLive />
 const Recorded = () => <div className="p-6">Recorded Classes Content</div>
 const Exam = () => <div className="p-6">Exam Panel Content</div>
 const Questions = () => <div className="p-6">Question Bank Content</div>
